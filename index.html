@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Création de site web | Rapid’Web | Mise en ligne en 48h</title>
+  <meta name="description" content="Rapid’Web : création de site web professionnelle en France. Mise en ligne en 48h, support mensuel, satisfaction garantie." />
+  <link rel="canonical" href="https://www.rapidweb.fr/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Création de site web en 48h - Rapid’Web" />
+  <meta property="og:description" content="Création de sites internet professionnels en France. Mise en ligne rapide, support mensuel." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1526378722370-3db26a55b8a0?w=1200&q=80" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <style>
+    :root {
+      --primary: #1b4dd8;
+      --secondary: #0b1a3c;
+      --light: #ffffff;
+      --dark: #0a0a0a;
+      --bg: #f6f8ff;
+      --radius: 14px;
+      --font: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); background: var(--bg); color: var(--dark); }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.8);
+      z-index: 999;
+    }
+    nav .logo { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+
+    nav ul {
+      display: none;
+      list-style: none;
+      gap: 20px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .burger {
+      width: 30px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .burger span {
+      height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: none;
+    }
+    #mobile-menu a {
+      display: block;
+      padding: 12px 0;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* Hero */
+    header {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1526378722370-3db26a55b8a0?w=1200&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 20px;
+      color: var(--light);
+      position: relative;
+    }
+    header::after {
+      content:'';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 480px;
+    }
+    .hero-content h1 {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+    .hero-content p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .cta {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--light);
+      padding: 14px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .cta:hover { background: #163eba; }
+
+    .cta2 {
+      display: inline-block;
+      margin-left: 12px;
+      color: var(--light);
+      padding: 14px 22px;
+      border: 2px solid var(--light);
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: var(--secondary);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .service-card {
+      background: white;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      transition: 0.3s;
+    }
+    .service-card:hover { transform: translateY(-5px); }
+
+    /* À propos */
+    .apropos-content img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+    }
+
+    /* Témoignages */
+    .testimonials {
+      display: grid;
+      gap: 20px;
+    }
+    .testimonial {
+      background: white;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    /* Zones */
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      background: var(--primary);
+      padding: 10px 16px;
+      color: white;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+    }
+
+    /* Contact */
+    form {
+      background: white;
+      padding: 24px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      display: grid;
+      gap: 14px;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      font-size: 1rem;
+    }
+    form button {
+      background: var(--primary);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--secondary);
+      color: white;
+    }
+    footer a { color: white; text-decoration: none; }
+
+    /* WhatsApp Floating */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    .whatsapp-float img { width: 32px; }
+
+    /* Desktop */
+    @media (min-width: 900px) {
+      nav ul { display: flex; }
+      .burger { display: none; }
+      #mobile-menu { display: none !important; }
+
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .testimonials { grid-template-columns: repeat(3, 1fr); }
+
+      .apropos-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">Rapid’Web</div>
+
+  <ul>
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#temoignages">Avis</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="burger" id="burger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div id="mobile-menu">
+  <a href="#accueil">Accueil</a>
+  <a href="#services">Services</a>
+  <a href="#apropos">À propos</a>
+  <a href="#temoignages">Avis</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- HERO -->
+<header id="accueil">
+  <div class="hero-content">
+    <h1>Création de site web – France entière</h1>
+    <p>Site professionnel livré en 48h · 300€ · Support mensuel en option</p>
+
+    <a href="#contact" class="cta">Demander un devis</a>
+    <a href="#services" class="cta2">Voir les services</a>
+  </div>
+</header>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Nos services</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Création de site vitrine</h3>
+      <p>Réalisation complète de votre site professionnel, adapté mobile et optimisé SEO.</p>
+    </div>
+
+    <div class="service-card" style="border:2px solid var(--primary);">
+      <h3>🚀 Mise en ligne en 48h</h3>
+      <p>Service phare : votre site opérationnel en moins de 2 jours.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Support & maintenance</h3>
+      <p>Mises à jour mensuelles, corrections, 2 modifications par mois.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Nom de domaine inclus</h3>
+      <p>Gestion complète de votre domaine, renouvellement et configuration.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Optimisation SEO</h3>
+      <p>Balises, structure, vitesse, stratégie locale et nationale.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>Hébergement performant</h3>
+      <p>Serveurs rapides, sécurisés et fiables pour votre site.</p>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <h2>À propos</h2>
+
+  <div class="apropos-layout">
+    <div class="apropos-content">
+      <img loading="lazy" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80" alt="Création de site web professionnel" />
+    </div>
+
+    <div>
+      <p>Rapid’Web aide artisans, indépendants et PME à obtenir une présence professionnelle en ligne, rapidement et sans complications. Nous concevons des sites modernes, rapides et optimisés pour le référencement, afin que vous soyez immédiatement visible.</p>
+      <br>
+      <p>Notre engagement : rapidité, transparence, simplicité.</p>
+      <br>
+      <strong>+200 sites réalisés</strong><br>
+      <strong>Expérience : 5 ans</strong>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section id="temoignages">
+  <h2>Avis clients</h2>
+
+  <div class="testimonials">
+    <div class="testimonial">
+      <p>★★★★★</p>
+      <p>"Site livré en 48h comme promis ! Super rapport qualité/prix."</p>
+      <strong>— Julie, Paris</strong>
+    </div>
+
+    <div class="testimonial">
+      <p>★★★★★</p>
+      <p>"Très pro, réactif, et un site moderne qui convertit. Je recommande."</p>
+      <strong>— Karim, Lyon</strong>
+    </div>
+
+    <div class="testimonial">
+      <p>★★★★★</p>
+      <p>"Support impeccable, modifications rapides. Rare de trouver ce service."</p>
+      <strong>— Antoine, Nantes</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ZONES -->
+<section id="zones">
+  <h2>Zones d’intervention</h2>
+  <p>Rapid’Web accompagne artisans, indépendants et PME dans toute la France.</p>
+
+  <div class="chips">
+    <div class="chip">France entière</div>
+    <div class="chip">Paris</div>
+    <div class="chip">Lyon</div>
+    <div class="chip">Marseille</div>
+    <div class="chip">Toulouse</div>
+    <div class="chip">Bordeaux</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+
+  <p><strong>Téléphone :</strong> <a href="tel:0745531434">07 45 53 14 34</a></p>
+
+  <br>
+
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact">
+    <p style="display:none;">
+      <input name="bot-field">
+    </p>
+
+    <input type="text" name="nom" placeholder="Votre nom" required />
+    <input type="text" name="telephone" placeholder="Votre téléphone" required />
+    <input type="email" name="email" placeholder="Votre email" required />
+
+    <select name="service">
+      <option value="Site vitrine">Création de site vitrine</option>
+      <option value="Site en 48h">Site en 48h</option>
+      <option value="Support mensuel">Support mensuel</option>
+    </select>
+
+    <textarea name="message" rows="5" placeholder="Votre message"></textarea>
+
+    <button type="submit">Envoyer la demande</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Rapid’Web</strong><br>Création de site web en France</p>
+  <br>
+  <a href="#">Mentions légales</a>
+  <p>© 2024 Rapid’Web – Tous droits réservés</p>
+</footer>
+
+<!-- WhatsApp Floating -->
+<a href="https://wa.me/33745531434?text=Bonjour%20Rapid%E2%80%99Web%2C%20j%E2%80%99aimerais%20plus%20d%E2%80%99informations%20!" 
+   class="whatsapp-float" aria-label="WhatsApp">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Rapid’Web",
+  "description":"Création de site web professionnelle en France. Mise en ligne en 48h, support mensuel.",
+  "telephone":"0745531434",
+  "email":"contact@rapidweb.fr",
+  "areaServed":"France entière",
+  "priceRange":"€€",
+  "url":"https://www.rapidweb.fr"
+}
+</script>
+
+<!-- JS -->
+<script>
+  // Burger menu
+  const burger = document.getElementById("burger");
+  const menu = document.getElementById("mobile-menu");
+
+  burger.onclick = () => {
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+  };
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll("section, header");
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  },{threshold:0.1});
+
+  reveals.forEach(el=>{
+    el.style.opacity = 0;
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "0.8s";
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
