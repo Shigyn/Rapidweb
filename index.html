@@ -3,253 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Rapid'Web | Votre Site Vitrine Pro en 48h - France</title>
-    <meta name="description" content="Expert en création de site internet pour artisans et TPE. 300€ TTC tout inclus. Livraison express en 48h. Boostez votre visibilité locale.">
+    <title>Rapid'Web | Site Vitrine Pro en 48h - France</title>
+    <meta name="description" content="Création de site internet professionnel pour 300€ TTC. Livraison express en 48h. Boostez votre visibilité.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         :root {
             --primary: #0052FF;
-            --primary-hover: #0041cc;
-            --bg-dark: #0f172a;
-            --text-main: #1E293B;
-            --text-muted: #64748B;
+            --primary-dark: #2c3e50;
+            --light-gray: #f4f4f9;
+            --card-bg: #ecf0f1;
+            --text: #333;
             --white: #ffffff;
-            --radius: 12px;
-            --shadow-md: 0 10px 25px -5px rgba(0, 82, 255, 0.1);
-            --container-narrow: 850px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--white);
-            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--light-gray);
+            color: var(--text);
         }
 
-        /* LOGO CUSTOM */
+        /* LOGO CUSTOM CSS */
         .logo-container { display: flex; align-items: center; gap: 8px; text-decoration: none; }
         .logo-icon {
             background: var(--primary); color: white;
-            width: 32px; height: 32px; border-radius: 8px;
+            width: 28px; height: 28px; border-radius: 6px;
             display: flex; align-items: center; justify-content: center;
-            font-weight: 800; font-size: 20px; transform: skewX(-10deg);
+            font-weight: 800; font-size: 18px; transform: skewX(-10deg);
         }
         .logo-text {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800; font-size: 1.4rem; color: var(--text-main);
-            letter-spacing: -0.5px;
+            font-weight: 800; font-size: 1.2rem; color: var(--primary-dark);
         }
         .logo-text span { color: var(--primary); }
 
-        /* NAVIGATION */
+        /* HEADER & NAV */
+        header {
+            background: var(--primary-dark);
+            color: white;
+            padding: 100px 5% 60px;
+            text-align: center;
+        }
+
         nav {
-            position: fixed; top: 0; width: 100%;
-            padding: 15px 6%; background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px); display: flex; justify-content: space-between; align-items: center;
-            z-index: 1000; border-bottom: 1px solid #f1f5f9;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* HERO */
-        section { padding: 80px 6%; max-width: 1100px; margin: 0 auto; }
-        
-        .hero {
-            padding-top: 160px; text-align: center;
-            max-width: var(--container-narrow);
+        /* BOUTON APPELER DISCRET SUR MOBILE */
+        .btn-call-nav {
+            background: var(--primary);
+            color: white !important;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.85rem;
         }
 
-        .badge {
-            display: inline-block; background: #eef4ff; color: var(--primary);
-            padding: 6px 14px; border-radius: 50px; font-weight: 700; font-size: 0.85rem; margin-bottom: 24px;
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
-        h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); margin-bottom: 24px; letter-spacing: -1.5px; line-height: 1.1; }
-        .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; max-width: 650px; margin-inline: auto; }
+        h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.5rem; margin-bottom: 1rem; }
+        h2 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--primary-dark); margin: 2rem 0 1.5rem; text-align: center; }
 
-        /* BOUTONS CORRIGÉS */
-        .cta-group { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        
-        .btn {
-            padding: 14px 32px; border-radius: var(--radius);
-            text-decoration: none; font-weight: 700; transition: 0.3s;
-            text-align: center; font-size: 1rem; display: inline-flex; align-items: center; justify-content: center;
-            min-width: 200px; /* Largeur fixe pour éviter le plein écran mobile */
+        /* DESIGN MODULES DU 1ER SITE */
+        .grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            gap: 20px;
         }
 
-        .btn-primary { background: var(--primary); color: white; border: none; box-shadow: 0 4px 15px rgba(0, 82, 255, 0.2); }
-        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
-        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: white; }
-
-        /* NOUVEAU BLOC : POURQUOI UN SITE ? */
-        .why-section { background: var(--bg-dark); color: white; border-radius: 24px; padding: 60px 40px; margin: 40px 6%; }
-        .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .why-item h3 { color: var(--primary); margin-bottom: 10px; font-family: 'Plus Jakarta Sans'; }
-        .why-item p { font-size: 0.95rem; opacity: 0.8; }
-
-        /* SERVICES */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 40px; }
-        .card { padding: 32px; border-radius: var(--radius); border: 1px solid #f1f5f9; background: white; transition: 0.3s; }
-        .card:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
-
-        /* TARIFS STYLE FUSIONNÉ */
-        .pricing-box {
-            background: var(--bg-dark); color: white; border-radius: 24px;
-            padding: 80px 40px; text-align: center; margin: 60px 0;
-            position: relative; overflow: hidden;
+        .card {
+            flex: 1;
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 5px;
+            text-align: center;
+            min-width: 280px;
+            transition: 0.3s;
         }
-        .price-value { font-size: 5rem; font-weight: 800; font-family: 'Plus Jakarta Sans'; margin: 10px 0; line-height: 1; }
-        .price-value span { font-size: 1.5rem; vertical-align: middle; opacity: 0.6; }
-        .price-features { list-style: none; margin: 30px auto; max-width: 400px; text-align: left; }
-        .price-features li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-        .price-features li::before { content: "✓"; color: var(--primary); font-weight: bold; }
 
-        /* FOOTER & FLOAT */
+        .card:hover { transform: translateY(-5px); }
+
+        .card h3 { color: var(--primary-dark); margin-bottom: 10px; }
+
+        /* SECTION TARIF DARK DU 2EME (ADAPTÉE) */
+        .pricing-zone {
+            background: var(--primary-dark);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .price { font-size: 3.5rem; font-weight: 800; margin: 10px 0; }
+        .price span { font-size: 1.2rem; opacity: 0.7; }
+
+        .btn-main {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+
+        .btn-main:hover { background: #0041cc; transform: scale(1.05); }
+
+        /* BLOC POURQUOI UN SITE */
+        .why-box {
+            background: #fdfdfd;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            margin: 2rem 0;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: var(--primary-dark);
+            color: white;
+            margin-top: 4rem;
+        }
+
         .wa-float {
-            position: fixed; bottom: 25px; right: 25px;
-            background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.2); z-index: 1000;
+            position: fixed; bottom: 20px; right: 20px;
+            background: #25D366; color: white; width: 55px; height: 55px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000;
         }
 
-        footer { text-align: center; padding: 60px 6%; border-top: 1px solid #f1f5f9; color: var(--text-muted); }
-
-        .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        @media (max-width: 480px) {
-            .btn { width: 85%; min-width: unset; } /* Largeur ajustée sur mobile (pas 100%) */
-            .price-value { font-size: 3.5rem; }
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem; width: 95%; }
+            h1 { font-size: 1.8rem; }
+            .btn-main { width: 100%; text-align: center; } /* Ici le gros bouton reste large pour le clic facile */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#accueil" class="logo-container">
+        <a href="#" class="logo-container">
             <div class="logo-icon">R</div>
             <div class="logo-text">Rapid'<span>Web</span></div>
         </a>
-        <a href="tel:0745531434" class="btn btn-primary" style="padding: 8px 20px; min-width: auto; font-size: 0.9rem;">Appeler</a>
+        <a href="tel:0745531434" class="btn-call-nav">Appeler</a>
     </nav>
 
-    <header class="hero" id="accueil">
-        <span class="badge">Votre site prêt en 48h chrono 🚀</span>
-        <h1>Démarquez-vous de vos concurrents dès demain</h1>
-        <p>Ne laissez plus vos clients partir chez la concurrence. On crée votre site vitrine professionnel pour seulement 300€ TTC. Simple, efficace, radical.</p>
-        <div class="cta-group">
-            <a href="https://wa.me/33745531434" class="btn btn-primary">Lancer mon site</a>
-            <a href="tel:0745531434" class="btn btn-outline">07 45 53 14 34</a>
-        </div>
+    <header>
+        <h1>Votre site vitrine livré en 48h</h1>
+        <p>Professionnel, rapide et optimisé pour vos clients.</p>
+        <a href="https://wa.me/33745531434" class="btn-main">Commander mon site</a>
     </header>
 
-    <section class="why-section reveal">
-        <h2 style="font-family: 'Plus Jakarta Sans'; font-size: 2rem; text-align: center;">Pourquoi votre entreprise a besoin d'un site ?</h2>
-        <div class="why-grid">
-            <div class="why-item">
-                <h3>Visibilité 24h/24</h3>
-                <p>Vos clients cherchent vos services sur Google le soir et le week-end. Soyez là où ils regardent.</p>
-            </div>
-            <div class="why-item">
-                <h3>Crédibilité Immédiate</h3>
-                <p>80% des clients vérifient le site web d'un artisan avant de l'appeler. Pas de site = pas de confiance.</p>
-            </div>
-            <div class="why-item">
-                <h3>Devis en Automatique</h3>
-                <p>Récupérez des demandes de contact même quand vous êtes en plein chantier ou en rendez-vous.</p>
-            </div>
+    <div class="container">
+        
+        <div class="why-box">
+            <h2 style="text-align: left; margin-top: 0;">Pourquoi créer votre site maintenant ?</h2>
+            <p>Aujourd'hui, <strong>80% de vos clients</strong> vous cherchent sur internet avant de vous appeler. Si vous n'êtes pas visible, vous donnez vos chantiers à vos concurrents. Un site Rapid'Web, c'est l'assurance d'une image pro et d'une présence sur Google sans perdre de temps.</p>
         </div>
-    </section>
 
-    <section id="services" class="reveal">
-        <h2 style="text-align:center; font-family: 'Plus Jakarta Sans'; margin-bottom: 40px;">Une solution sans prise de tête</h2>
+        <hr>
+
+        <h2>Nos Services</h2>
         <div class="grid">
             <div class="card">
-                <h3>Vitesse Absolue</h3>
-                <p>Dites adieu aux délais de 3 mois. Votre site est livré et fonctionnel 48h après validation.</p>
+                <h3>Vitesse 48h</h3>
+                <p>On ne traîne pas. Votre site est prêt et en ligne en seulement 2 jours ouvrés.</p>
             </div>
-            <div class="card" style="border-color: var(--primary);">
+            <div class="card">
                 <h3>Optimisé Google</h3>
-                <p>Nous intégrons les mots-clés de votre métier pour que vous remontiez dans les recherches locales.</p>
+                <p>Nous paramétrons votre site pour qu'il soit bien vu par Google dans votre zone.</p>
             </div>
             <div class="card">
-                <h3>Design Moderne</h3>
-                <p>Un site qui s'adapte parfaitement aux smartphones pour une expérience fluide et pro.</p>
+                <h3>Simple & Clair</h3>
+                <p>Un design épuré qui va droit au but : donner envie de vous appeler.</p>
             </div>
         </div>
-    </section>
 
-    <section id="tarifs" class="reveal">
-        <div class="pricing-box">
-            <h2 style="font-family: 'Plus Jakarta Sans'; font-size: 2rem;">Offre de Lancement</h2>
-            <div class="price-value">300€ <span>TTC</span></div>
-            <p style="opacity: 0.7;">Paiement unique. Zéro frais cachés.</p>
-            
-            <ul class="price-features">
-                <li>Création de votre site vitrine pro</li>
-                <li>Optimisation SEO pour Google</li>
-                <li>Hébergement professionnel inclus</li>
-                <li>Mise en ligne sous 48h garantie</li>
-            </ul>
-
-            <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 12px; display: inline-block; text-align: left; max-width: 400px; font-size: 0.9rem;">
-                <strong>Option Support Zen : 30€ TTC/mois</strong><br>
-                Support, Maintenance, 2 modifs de texte/image par mois et Nom de domaine inclus. Sans engagement.
-            </div>
-            <br><br>
-            <a href="https://wa.me/33745531434" class="btn btn-primary" style="background: white; color: var(--bg-dark);">Commander mon site</a>
+        <div class="pricing-zone">
+            <h2 style="color: white; margin-top: 0;">Offre Unique</h2>
+            <div class="price">300€ <span>TTC</span></div>
+            <p>Création complète + Mise en ligne + Hébergement inclus.</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">Option support : 30€ TTC/mois (Modifs illimitées, nom de domaine, maintenance - sans engagement)</p>
+            <a href="tel:0745531434" class="btn-main" style="background: white; color: var(--primary-dark);">Nous appeler : 07 45 53 14 34</a>
         </div>
-    </section>
 
-    <section id="avis" class="reveal">
-        <h2 style="text-align:center; font-family: 'Plus Jakarta Sans'; margin-bottom: 40px;">Le retour de nos clients</h2>
+        <h2>Avis Clients</h2>
         <div class="grid">
             <div class="card">
-                <p style="font-style: italic; margin-bottom: 15px;">"J'avais peur que ce soit trop cher, mais pour 300€ j'ai un site super pro. Livraison en 2 jours comme promis."</p>
-                <strong>Jean-Luc, Plombier (Lyon)</strong>
+                <p>"Mon entreprise de peinture est enfin visible. Le site est propre et pro."</p>
+                <small>— Marc, Artisan à Lyon</small>
             </div>
             <div class="card">
-                <p style="font-style: italic; margin-bottom: 15px;">"Le support à 30€ par mois est parfait pour mes petites mises à jour. Je ne m'occupe de rien techniquement."</p>
-                <strong>Sarah, Esthéticienne (Bordeaux)</strong>
+                <p>"Livré en temps record. Le prix est imbattable pour cette qualité."</p>
+                <small>— Sarah, Coiffeuse</small>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer>
-        <div class="logo-container" style="justify-content: center; margin-bottom: 20px;">
+        <div class="logo-container" style="justify-content: center; margin-bottom: 1rem;">
             <div class="logo-icon">R</div>
-            <div class="logo-text">Rapid'<span>Web</span></div>
+            <div class="logo-text" style="color: white;">Rapid'<span>Web</span></div>
         </div>
-        <p>Créateur de sites web pour les entrepreneurs qui veulent bouger vite.</p>
-        <p style="margin-top: 15px; font-weight: 700; color: var(--text-main);">Appel direct : 07 45 53 14 34</p>
-        <p style="margin-top: 40px; font-size: 0.75rem; opacity: 0.5;">&copy; 2026 Rapid'Web France. Tous droits réservés.</p>
+        <p>Création de sites web pour artisans et TPE.</p>
+        <p>&copy; 2026 Rapid'Web France</p>
     </footer>
 
-    <a href="https://wa.me/33745531434?text=Bonjour, je souhaite commander mon site à 300 euros" class="wa-float" target="_blank">
-        <svg width="32" height="32" fill="white" viewBox="0 0 16 16">
+    <a href="https://wa.me/33745531434" class="wa-float" target="_blank">
+        <svg width="30" height="30" fill="white" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
-
-    <script>
-        function reveal() {
-            var reveals = document.querySelectorAll('.reveal');
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var revealTop = reveals[i].getBoundingClientRect().top;
-                if (revealTop < windowHeight - 100) {
-                    reveals[i].classList.add('active');
-                }
-            }
-        }
-        window.addEventListener('scroll', reveal);
-        reveal();
-    </script>
 
 </body>
 </html>
