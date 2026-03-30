@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Rapid'Web | Votre Site Vitrine Pro en 48h - France</title>
+    <meta name="description" content="Création de site internet pour artisans et TPE. 300€ TTC tout inclus. Livraison express en 48h. Boostez votre visibilité locale dès maintenant.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #0052FF;
+            --primary-hover: #0041cc;
+            --bg-light: #F8FAFC;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --white: #ffffff;
+            --radius-lg: 12px;
+            --radius-sm: 8px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 10px 25px -5px rgba(0, 82, 255, 0.1);
+            --container-width: 1100px;
+            --container-narrow: 800px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--white);
+            color: var(--text-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* LOGO STYLE CUSTOM */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            transform: skewX(-10deg);
+        }
+        .logo-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+        .logo-text span { color: var(--primary); }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 15px 6%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .nav-links { display: none; gap: 30px; align-items: center; }
+        @media (min-width: 768px) { .nav-links { display: flex; } }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; }
+
+        /* HERO SECTION */
+        section { padding: 80px 6%; max-width: var(--container-width); margin: 0 auto; }
+        
+        .hero {
+            padding-top: 160px;
+            text-align: center;
+            max-width: var(--container-narrow);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #eef4ff;
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
+        }
+
+        h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 24px; letter-spacing: -1px; }
+        .hero p { font-size: 1.15rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-inline: auto; }
+
+        .cta-group { display: flex; flex-direction: column; gap: 12px; max-width: 450px; margin: 0 auto; }
+        @media (min-width: 500px) { .cta-group { flex-direction: row; justify-content: center; } }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+            text-align: center;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .btn-primary { background: var(--primary); color: white; border: none; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .btn-outline { border: 1px solid #e2e8f0; color: var(--text-main); background: white; }
+        .btn-outline:hover { background: #f8fafc; }
+
+        /* SERVICES GRID */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 48px; }
+        .card { padding: 32px; border-radius: var(--radius-lg); border: 1px solid #f1f5f9; background: white; transition: 0.3s; }
+        .card:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
+        .card h3 { margin-bottom: 12px; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* PRICING BLOCK */
+        .pricing-section { background: #0f172a; color: white; border-radius: 24px; padding: 60px 40px; text-align: center; margin: 60px 6%; }
+        .price-hero { font-size: 4.5rem; font-weight: 800; font-family: 'Plus Jakarta Sans', sans-serif; margin: 20px 0; }
+        .price-hero span { font-size: 1.5rem; color: #94a3b8; }
+
+        /* FORM */
+        .contact-container { max-width: 550px; margin: 0 auto; padding: 40px 0; }
+        input, select, textarea { 
+            width: 100%; padding: 12px 16px; margin-bottom: 16px; 
+            border: 1px solid #e2e8f0; border-radius: var(--radius-sm); 
+            font-family: inherit; font-size: 1rem; outline: none;
+        }
+        input:focus { border-color: var(--primary); }
+
+        /* WHATSAPP FLOAT */
+        .wa-float {
+            position: fixed; bottom: 25px; right: 25px;
+            background: #25D366; color: white;
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000;
+        }
+
+        footer { text-align: center; padding: 60px 0; border-top: 1px solid #f1f5f9; color: var(--text-muted); font-size: 0.9rem; }
+
+        .reveal { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#accueil" class="logo-container">
+            <div class="logo-icon">R</div>
+            <div class="logo-text">Rapid'<span>Web</span></div>
+        </a>
+        <div class="nav-links">
+            <a href="#services">Solution</a>
+            <a href="#tarifs">Tarifs</a>
+            <a href="tel:0745531434" class="btn btn-primary" style="padding: 8px 16px;">Appeler</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="accueil">
+        <span class="badge">Disponible partout en France</span>
+        <h1>Votre présence en ligne activée sous 48h</h1>
+        <p>Un site vitrine professionnel, clé en main, conçu pour transformer vos visiteurs en clients. Simple, rapide et sans frais cachés.</p>
+        <div class="cta-group">
+            <a href="#contact" class="btn btn-primary">Lancer mon projet</a>
+            <a href="#tarifs" class="btn btn-outline">Voir l'offre unique</a>
+        </div>
+    </header>
+
+    <section id="services" class="reveal">
+        <div style="text-align:center; margin-bottom: 40px;">
+            <h2 style="font-family: 'Plus Jakarta Sans'; font-size: 2rem;">Pourquoi nous choisir ?</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <h3>Vitesse de déploiement</h3>
+                <p>On ne traîne pas. Votre site est en ligne 48h après la réception de vos informations pour ne perdre aucun client.</p>
+            </div>
+            <div class="card">
+                <h3>Référencement local</h3>
+                <p>Optimisation technique de base pour que vos clients vous trouvent sur Google quand ils cherchent votre métier dans votre zone.</p>
+            </div>
+            <div class="card">
+                <h3>Zéro gestion technique</h3>
+                <p>On s'occupe de l'hébergement, du nom de domaine et de la sécurité. Vous vous concentrez sur votre métier.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="pricing-section reveal" id="tarifs">
+        <h2 style="font-family: 'Plus Jakarta Sans';">Tarif Unique & Transparent</h2>
+        <div class="price-hero">300€ <span>TTC</span></div>
+        <p style="color: #94a3b8; margin-bottom: 30px;">Paiement unique pour la création complète</p>
+        <div style="max-width: 500px; margin: 0 auto; text-align: left; background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; font-size: 0.95rem;">
+            <p>✓ Création du site vitrine</p>
+            <p>✓ Hébergement professionnel inclus</p>
+            <p>✓ Mise en conformité mobile</p>
+            <p>✓ Support & Modifs : 30€ TTC/mois (sans engagement)</p>
+        </div>
+    </div>
+
+    <section id="avis" class="reveal">
+        <h2 style="text-align:center; font-family: 'Plus Jakarta Sans'; margin-bottom: 40px;">Ils nous ont fait confiance</h2>
+        <div class="grid">
+            <div class="card">
+                <p style="font-style: italic; margin-bottom: 15px;">"Franchement bluffé par la rapidité. Mon ancien site était lent et pas du tout lisible sur smartphone. Là, c'est propre et efficace."</p>
+                <strong>Thierry L. - Menuisier (Annecy)</strong>
+            </div>
+            <div class="card">
+                <p style="font-style: italic; margin-bottom: 15px;">"Prix respecté, pas de mauvaises surprises. Le formulaire fonctionne bien et j'ai déjà eu mes premiers appels via le site."</p>
+                <strong>Sonia M. - Institut de Beauté</strong>
+            </div>
+            <div class="card">
+                <p style="font-style: italic; margin-bottom: 15px;">"Simple, sans chichi. J'avais besoin d'une page pro pour mes prestations de coach, c'est exactement ce qu'il me fallait."</p>
+                <strong>Marc D. - Consultant</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="reveal">
+        <div class="contact-container">
+            <h2 style="text-align:center; font-family: 'Plus Jakarta Sans'; margin-bottom: 30px;">Demander votre site</h2>
+            
+            <form name="contact-rapidweb" method="POST" data-netlify="true">
+                <input type="text" name="nom" placeholder="Votre Nom / Entreprise" required>
+                <input type="tel" name="telephone" placeholder="Numéro de téléphone" required>
+                <select name="besoin" required>
+                    <option value="">Votre projet</option>
+                    <option value="vitrine">Site Vitrine 300€</option>
+                    <option value="vitrine-support">Site + Support Mensuel</option>
+                </select>
+                <textarea name="message" rows="4" placeholder="Description rapide de votre activité..."></textarea>
+                <button type="submit" class="btn btn-primary" style="width:100%; cursor:pointer; border:none;">Envoyer la demande</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo-container" style="justify-content: center; margin-bottom: 20px; opacity: 0.8;">
+            <div class="logo-icon">R</div>
+            <div class="logo-text">Rapid'<span>Web</span></div>
+        </div>
+        <p>Création de sites internet professionnels - France Entière</p>
+        <p style="margin-top: 10px; color: var(--text-main); font-weight: 600;">07 45 53 14 34</p>
+        <p style="margin-top: 30px; font-size: 0.75rem;">&copy; 2024 Rapid'Web. Tous droits réservés.</p>
+    </footer>
+
+    <a href="https://wa.me/33745531434?text=Bonjour, je souhaite des informations pour un site web" class="wa-float" target="_blank">
+        <svg width="30" height="30" fill="white" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+        </svg>
+    </a>
+
+    <script>
+        // Reveal animation on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                if (revealTop < windowHeight - 100) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+        reveal();
+    </script>
+
+</body>
+</html>
